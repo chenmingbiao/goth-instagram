@@ -14,12 +14,13 @@ To use this provider with Goth, you need to set it up with your Instagram applic
 package main
 
 import (
-	"fmt"
-	"net/http"
-	"os"
-	"github.com/markbates/goth"
-	"github.com/markbates/goth/gothic"
-	"github.com/chenmingbiao/goth-instagram"
+    "fmt"
+    "net/http"
+    "os"
+	
+    "github.com/markbates/goth"
+    "github.com/markbates/goth/gothic"
+    "github.com/chenmingbiao/goth-instagram"
 )
 
 func main() {
