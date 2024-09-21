@@ -25,7 +25,7 @@ import (
 func main() {
     goth.UseProviders(
         instagram.New(os.Getenv("INSTAGRAM_CLIENT_ID"), os.Getenv("INSTAGRAM_CLIENT_SECRET"), "http://localhost:3000/auth/instagram/callback"),
-	)
+    )
     http.HandleFunc("/auth/instagram", func(w http.ResponseWriter, r *http.Request) {
         gothic.BeginAuthHandler(w, r)
     })
