@@ -4,7 +4,9 @@ This package implements the [Instagram Graph API](https://developers.facebook.co
 
 ## Installation
 
+```bash
 go get github.com/chenmingbiao/goth-instagram
+```
 
 ## Usage
 

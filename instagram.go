@@ -84,12 +84,14 @@ func (p *Provider) FetchUser(session goth.Session) (goth.User, error) {
 	if err != nil {
 		return user, err
 	}
-	defer func(Body io.ReadCloser) {
-		err := Body.Close()
-		if err != nil {
-
+	defer func() {
+		if closeErr := response.Body.Close(); cerr != nil {
+			// 如果关闭时发生错误，并且还没有其他错误，则设置这个错误
+			if err == nil {
+				err = closeErr
+			}
 		}
-	}(response.Body)
+	}()
 
 	if response.StatusCode != http.StatusOK {
 		return user, fmt.Errorf("%s responded with a %d trying to fetch user information", p.providerName, response.StatusCode)
